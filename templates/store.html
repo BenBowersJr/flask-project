@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+<title>Store page</title>
+{% endblock %} 
+
+
+{% block body %}
+<div class="store-container">
+  {% for item in inv %}
+    <div class="store-item">
+      <a href="/store/{{item.name}}">
+      <div class="image-placeholder"></div>
+      <h2>{{item.name}}</h2>
+      <p class="price">{{item.price}}</p>
+      </a>
+    </div>
+  {% endfor %}
+</div>  
+
+<script src="static/javascript/main.js" async></script>
+
+{% endblock %}

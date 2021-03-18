@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Product</title>
+{% endblock %}
+
+{% block body %}
+<div class="product-container">
+  <h2>{{itemName}}</h2>
+  <div class="image-placeholder"></div>
+
+
+  <p class="price">{{itemPrice}}</p>
+  <p>{{itemContent}}</p>
+  <form action="{{itemName}}/add" method="post">
+    <input type="hidden" value="{{itemID}}" name="ID">
+    <button type="submit" name="add-to-cart"></button>
+  </form>
+</div>
+
+
+{% endblock %}
