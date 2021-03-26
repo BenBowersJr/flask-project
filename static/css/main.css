@@ -21,12 +21,24 @@ ul {
   list-style: none;
   display: flex;
 }
+
 ul li {
   padding: 20px;
 }
+
 h2 {
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
+  padding-bottom: 10px;
+}
+
+input {
+  color: #000
+}
+button {
+  color: #000;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .store-item {
@@ -37,14 +49,41 @@ h2 {
 .store-item a {
   text-decoration: none;
 }
-.image-placeholder {
+img {
   width: 300px;
   height: 400px;
-  background-color: #841818;
   margin: auto;
+  border-radius: 5px;
 }
 
 .store-container {
   display: flex;
   flex-direction: row;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-container form button {
+  margin: auto;
+}
+.cart {
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#cartH2 {
+  padding-bottom: 30px;
+}
+
+.checkout {
+  margin-top: 20px;
 }

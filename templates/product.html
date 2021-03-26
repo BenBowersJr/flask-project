@@ -12,8 +12,10 @@
 
   <p class="price">{{itemPrice}}</p>
   <p>{{itemContent}}</p>
-  <form action="{{itemName}}/add" method="post">
+  <form action="" method="post">
     <input type="hidden" value="{{itemID}}" name="ID">
+    <input type="hidden" name="price" value="{{itemPrice}}">
+    <input type="number" name="quantity">
     <button type="submit" name="add-to-cart"></button>
   </form>
 </div>

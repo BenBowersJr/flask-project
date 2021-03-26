@@ -6,14 +6,30 @@
 
 
 {% block body %}
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for msg in messages %}
+        <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+
 <div class="store-container">
   {% for item in inv %}
     <div class="store-item">
-      <a href="/store/{{item.name}}">
-      <div class="image-placeholder"></div>
+      <img src="static/{{item.image}}" alt="">
       <h2>{{item.name}}</h2>
-      <p class="price">{{item.price}}</p>
-      </a>
+      <p class="price">${{item.price}}</p>
+      <form action="/addtocart" method="post">
+        <input type="hidden" value="{{item.id}}" name="id">
+        <input type="hidden" value="{{item.name}}" name="name">
+        <input type="hidden" value="{{item.price}}" name="price">
+        <input type="hidden" value="{{item.image}}" name="image">
+        <input type="number" value="1" name="quantity">
+        <button class="submit" type="submit" name="add-to-cart">Add To Cart</button>
+      </form>
     </div>
   {% endfor %}
 </div>  

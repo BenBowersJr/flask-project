@@ -5,6 +5,37 @@
 {% endblock%}
 
 {% block body %}
-<h1>THIS IS THE SHOPPING CART WOOOOO</h1>
-<p>{{ id }}</p>
+  <div class="cart-container">
+    <h2>Your cart Items</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <p>{{msg}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% if 'cart' in session %}
+      <form action="/clear" method="post">
+        <button type="submit">Clear Cart</button>
+      </form>
+
+      <div class="cart">
+        {% for key, val in session['cart'].items() %}
+          <div class="cart-item">
+            <img src="static/{{val.image}}">
+            <h3>{{val.name}}</h3>
+            <p>Quantity: {{val.quantity}}</p>
+            <p>Price per item: {{val.price}}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <form action="/checkout" method="post">
+      <button class="checkout" type="submit">Proceed to Checkout</button>
+    </form>
+  
+  </div>
+
 {% endblock %}
